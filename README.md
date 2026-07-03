@@ -66,6 +66,7 @@ A full-featured REST API for a Twitter-like social media platform built with **F
 
 ## 📁 Project Structure
 
+```
 social_media_api/
 ├── main.py                 # Main FastAPI app
 ├── database.py             # Database configuration
@@ -80,7 +81,7 @@ social_media_api/
 │   └── feeds.py            # Feed endpoints (10)
 ├── requirements.txt        # Python dependencies
 └── README.md              # This file
-
+``` 
 ---
 
 ## ⚙️ Installation
@@ -212,14 +213,14 @@ uvicorn main:app --reload --port 8003
 - **follows** - Follow relationships
 
 ### Relationships
-
+```
 users ----1:N---- posts
 users ----1:N---- comments
 users ----1:N---- likes
 users ----M:N---- follows (self-referential)
 posts ----1:N---- comments
 posts ----1:N---- likes
-
+```
 ---
 
 ## 💡 Key Features Explained
