@@ -130,7 +130,7 @@ uvicorn main:app --reload --port 8003
 6. **Access the API**
 - API Documentation: http://127.0.0.1:8003/docs
 - Alternative Docs: http://127.0.0.1:8003
-- **Live Demo:** https://social-media-api-ispt.onrender.com/docs/redoc
+- **Live Demo:** https://social-media-api-ispt.onrender.com/docs
 
 ---
 
