@@ -10,7 +10,7 @@ load_dotenv()
 
 # Get database URL from environment variable
 DATABASE_URL = os.getenv(
-    "DATABASE_URL" # Local fallback
+    "DATABASE_URL" # choose your DataBase URl in you local computer
 )
 
 # Use SQLite for local dev if needed
