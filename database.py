@@ -1,4 +1,4 @@
-#  SAFE - New version
+# database.py
 import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -8,16 +8,20 @@ from dotenv import load_dotenv
 # Load .env file for local development
 load_dotenv()
 
-# Get database URL from environment variable
-DATABASE_URL = os.getenv(
-    "DATABASE_URL" # choose your DataBase URl in you local computer
-)
+# Try to get DATABASE_URL, but default to SQLite
+DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Use SQLite for local dev if needed
-USE_SQLITE = os.getenv("USE_SQLITE", "false").lower() == "true"
-
-if USE_SQLITE:
+# If no DATABASE_URL, use SQLite (works everywhere!)
+if not DATABASE_URL:
     DATABASE_URL = "sqlite:///./social_media_api.db"
+    print(" Using SQLite (DATABASE_URL not found)")
+else:
+    print(f" Using MySQL/Cloud database")
+
+print(f"Database: {DATABASE_URL}")
+
+# Create engine
+if "sqlite" in DATABASE_URL:
     engine = create_engine(
         DATABASE_URL,
         connect_args={"check_same_thread": False}
